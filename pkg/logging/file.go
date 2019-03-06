@@ -29,7 +29,7 @@ func openLogFile(filePath string) *os.File {
 	_, err := os.Stat(filePath)
 	switch {
 		case os.IsNotExist(err):
-			mkDir(getLogFilePath())
+			mkDir()
 		case os.IsPermission(err):
 			log.Fatalf("Permission :%v", err)
 	}
@@ -42,7 +42,8 @@ func openLogFile(filePath string) *os.File {
 	return handle
 }
 
-func mkDir(filePath string) {
+
+func mkDir() {
 	dir, _ := os.Getwd()
 	err := os.MkdirAll(dir + "/" + getLogFilePath(), os.ModePerm)
 	if err != nil {
