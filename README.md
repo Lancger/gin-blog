@@ -1,18 +1,18 @@
 # gin-blog
 
-## 依赖管理
+## 一、依赖管理
 ```
 govendor init
 govendor add +e
 govendor update +external
 ```
 
-## 运行
+## 二、运行
 ```
 go run main.go
 ```
 
-## 接口测试
+## 三、接口测试
 ```
 post测试
 http://127.0.0.1:8000/api/v1/tags?name=python&state=1&created_by=test1
