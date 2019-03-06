@@ -42,4 +42,17 @@ http://127.0.0.1:8000/api/v1/articles/1?tag_id=1&title=test-edit1&desc=test-desc
 DELETE：
 http://127.0.0.1:8000/api/v1/articles/1
 
+
+验证Token
+http://127.0.0.1:8000/auth?username=admin&password=admin
+
+运行结果
+{
+  "code": 200,
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJwYXNzd29yZCI6InRlc3QxMjM0NTYiLCJleHAiOjE1MTg3MjAwMzcsImlzcyI6Imdpbi1ibG9nIn0.-kK0V9E06qTHOzupQM_gHXAGDB3EJtJS4H5TTCyWwW8"
+  },
+  "msg": "ok"
+}
+
 ```
