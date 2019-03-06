@@ -14,7 +14,7 @@ go run main.go
 
 ## 三、接口测试
 ```
-标签接口测试
+一、标签接口测试
 POST：
 http://127.0.0.1:8000/api/v1/tags?name=python&state=1&created_by=test1
 
@@ -25,8 +25,7 @@ PUT:
 http://127.0.0.1:8000/api/v1/tags/2?name=java&state=1&modified_by=yoyo
 
 
-文章接口测试
-
+二、文章接口测试
 POST：
 http://127.0.0.1:8000/api/v1/articles?tag_id=1&title=test1&desc=test-desc&content=test-content&created_by=test-created&state=1
 
@@ -43,7 +42,7 @@ DELETE：
 http://127.0.0.1:8000/api/v1/articles/1
 
 
-验证Token
+三、验证Token
 http://127.0.0.1:8000/auth?username=admin&password=admin
 
 运行结果
@@ -54,5 +53,16 @@ http://127.0.0.1:8000/auth?username=admin&password=admin
   },
   "msg": "ok"
 }
+
+四、验证jwt
+http://127.0.0.1:8000/api/v1/articles
+http://127.0.0.1:8000/api/v1/articles?token=23131
+
+得到token
+http://127.0.0.1:8000/auth?username=admin&password=admin
+
+带上token请求文章接口
+http://127.0.0.1:8000/api/v1/articles?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImV4cCI6MTU1MTg4NDI1NywiaXNzIjoiZ2luLWJsb2cifQ.xpWYGDvpmzUFW6u8TVeAjq6qjjjTOjLZ17-S8_uO_m0
+
 
 ```
