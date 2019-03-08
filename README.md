@@ -23,6 +23,16 @@ git clone https://github.com/Lancger/gin-blog.git
 
 ## 三、依赖管理
 ```
+#下载依赖包管理工具
+go get -u -v github.com/kardianos/govendor
+
+#将包管理工具同步到$GOROOT的bin目录，或者将$GOPATH的BIN目录给加入环境变量中
+cp /opt/path/bin/govendor /usr/local/go/bin/
+
+#检验govendor版本
+govendor -version
+$ v1.0.9
+
 go get                                                                           //把所有依赖包都安装好
 govendor init
 govendor add +e
