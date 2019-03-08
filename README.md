@@ -1,4 +1,4 @@
-# gin-blog  使用文档
+# gin-blog项目使用文档
 
 ## 一、项目初始化
 初始工作区
@@ -14,14 +14,14 @@ export GOPATH=/opt/path/
 
 mkdir -p /opt/path/{bin,pkg,src}
 ```
-## 克隆项目
+## 二、克隆项目
 ```
 cd /opt/path/src
 
 git clone https://github.com/Lancger/gin-blog.git
 ```
 
-## 一、依赖管理
+## 三、依赖管理
 ```
 go get                                                                           //把所有依赖包都安装好
 govendor init
@@ -29,12 +29,12 @@ govendor add +e
 govendor update +external
 ```
 
-## 二、运行
+## 四、运行
 ```
 go run main.go
 ```
 
-## 三、接口测试
+## 五、接口测试
 ```
 一、标签接口测试
 POST：
