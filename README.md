@@ -45,6 +45,11 @@ govendor update +external    //从 $GOPATH 更新依赖包到 vendor 目录
 ## 四、运行
 ```
 go run main.go
+
+或者
+go build -o mygo main.go
+./mygo
+
 ```
 
 ## 五、接口测试
