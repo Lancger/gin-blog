@@ -33,9 +33,11 @@ cp /opt/path/bin/govendor /usr/local/go/bin/
 govendor -version
 $ v1.0.9
 
-go get                                                                           //把所有依赖包都安装好
-govendor init
-govendor add +e
+go get                 //把所有依赖包都安装好
+govendor init          //会生成一个vendor目录和vendor.json, 里面并没有依赖包信息
+govendor add +external
+govendor add +e       //#将GOPATH中本工程使用到的依赖包自动移动到vendor目录中,如果本地GOPATH没有依赖包，先go get相应的依赖包
+
 govendor update +external
 ```
 
