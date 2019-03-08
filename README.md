@@ -9,10 +9,10 @@
 
 ```
 mkdir -p /opt/path/
-
 export GOPATH=/opt/path/
-
 mkdir -p /opt/path/{bin,pkg,src}
+
+echo "export GOPATH=/opt/path/" >>/etc/profile
 ```
 ## 二、克隆项目
 ```
