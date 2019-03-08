@@ -1,4 +1,25 @@
-# gin-blog
+# gin-blog  使用文档
+
+## 一、项目初始化
+初始工作区
+
+首先，我们需要增加一个工作区（GOPATH）路径用于我们的gin-blog项目。
+
+将你新的工作区加入到/etc/profile中的GOPATH环境变量中， 并在新工作区中，建立bin、pkg、src三个目录。
+
+```
+mkdir -p /opt/path/
+
+export GOPATH=/opt/path/
+
+mkdir -p /opt/path/{bin,pkg,src}
+```
+## 克隆项目
+```
+cd /opt/path/src
+
+git clone https://github.com/Lancger/gin-blog.git
+```
 
 ## 一、依赖管理
 ```
