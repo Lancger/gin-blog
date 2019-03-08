@@ -2,7 +2,7 @@
 
 ## 一、依赖管理
 ```
-go get    把所有依赖包都安装好
+go get                                                                           //把所有依赖包都安装好
 govendor init
 govendor add +e
 govendor update +external
