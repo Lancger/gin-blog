@@ -30,6 +30,7 @@ go get -u -v github.com/kardianos/govendor
 cp /opt/path/bin/govendor /usr/local/go/bin/
 或
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+sed -i 's#export PATH=$PATH.*#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin#g' /etc/profile
 
 #检验govendor版本
 govendor -version
