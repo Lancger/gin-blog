@@ -28,6 +28,8 @@ go get -u -v github.com/kardianos/govendor
 
 #将包管理工具同步到$GOROOT的bin目录，或者将$GOPATH的BIN目录给加入环境变量中
 cp /opt/path/bin/govendor /usr/local/go/bin/
+或
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 #检验govendor版本
 govendor -version
