@@ -13,6 +13,10 @@ export GOPATH=/opt/path/
 mkdir -p /opt/path/{bin,pkg,src}
 
 echo "export GOPATH=/opt/path/" >>/etc/profile
+
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+或
+sed -i 's#export PATH=$PATH.*#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin#g' /etc/profile
 ```
 ## 二、克隆项目
 ```
@@ -28,9 +32,6 @@ go get -u -v github.com/kardianos/govendor
 
 #将包管理工具同步到$GOROOT的bin目录，或者将$GOPATH的BIN目录给加入环境变量中
 cp /opt/path/bin/govendor /usr/local/go/bin/
-或
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-sed -i 's#export PATH=$PATH.*#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin#g' /etc/profile
 
 #检验govendor版本
 govendor -version
