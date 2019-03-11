@@ -95,7 +95,7 @@ DELETE：
 http://127.0.0.1:8000/api/v1/articles/1
 
 
-三、验证Token
+三、获取Token
 http://127.0.0.1:8000/auth?username=admin&password=admin
 
 运行结果
