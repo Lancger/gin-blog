@@ -17,6 +17,9 @@ echo "export GOPATH=/opt/path/" >>/etc/profile
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 或
 sed -i 's#export PATH=$PATH.*#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin#g' /etc/profile
+
+配置生效
+source  /etc/profile
 ```
 ## 二、克隆项目
 ```
