@@ -119,3 +119,8 @@ http://127.0.0.1:8000/api/v1/articles?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 
 
 ```
+
+## 六、数据库变化
+```
+alter table blog_tag add deleted_on int(4) default '0';
+```
