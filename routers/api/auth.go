@@ -17,8 +17,8 @@ type auth struct {
 	Password string `valid:"Required; MaxSize(50)"`
 }
 
+// GetAuth 登录
 func GetAuth(c *gin.Context) {
-
 	type reqPost struct {
 		Username string `json:"username"`
 		Password string `json:"password"`
