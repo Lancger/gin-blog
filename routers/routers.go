@@ -15,6 +15,8 @@ import (
 	"gin-blog/pkg/setting"
 	"gin-blog/routers/api"
 	v1 "gin-blog/routers/api/v1"
+
+	"gin-blog/models"
 )
 
 func InitRouter() *gin.Engine {
@@ -39,6 +41,9 @@ func InitRouter() *gin.Engine {
 
 	//swagger api docs
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
+	//获取用户信息
+	r.GET("/user/info", models.AccountInfo)
 
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())

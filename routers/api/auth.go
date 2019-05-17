@@ -12,10 +12,10 @@ import (
 	"gin-blog/pkg/util"
 )
 
-type auth struct {
-	Username string `valid:"Required; MaxSize(50)"`
-	Password string `valid:"Required; MaxSize(50)"`
-}
+// type Auth struct {
+// 	Username string `valid:"Required; MaxSize(50)"`
+// 	Password string `valid:"Required; MaxSize(50)"`
+// }
 
 // GetAuth 登录
 func GetAuth(c *gin.Context) {
@@ -39,7 +39,7 @@ func GetAuth(c *gin.Context) {
 	}
 
 	valid := validation.Validation{}
-	a := auth{Username: req.Username, Password: req.Password}
+	a := models.Auth{Username: req.Username, Password: req.Password}
 	ok, _ := valid.Valid(&a)
 
 	data := make(map[string]interface{})
