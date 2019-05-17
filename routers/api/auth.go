@@ -29,6 +29,7 @@ func GetAuth(c *gin.Context) {
 	)
 	// username := c.Query("username")
 	// password := c.Query("password")
+	password1 := c.Query("password")
 
 	if err := c.BindJSON(&req); err != nil {
 		c.JSON(http.StatusOK, gin.H{
