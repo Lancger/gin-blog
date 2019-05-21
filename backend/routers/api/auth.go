@@ -1,15 +1,15 @@
 package api
 
 import (
-	"gin-blog/pkg/logging"
+	"gin-blog/backend/pkg/logging"
 	"net/http"
 
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 
-	"gin-blog/models"
-	"gin-blog/pkg/e"
-	"gin-blog/pkg/util"
+	"gin-blog/backend/models"
+	"gin-blog/backend/pkg/e"
+	"gin-blog/backend/pkg/util"
 )
 
 // GetAuth 登录

@@ -1,8 +1,8 @@
 package models
 
 import (
-	"gin-blog/pkg/e"
-	"gin-blog/pkg/util"
+	"gin-blog/backend/pkg/e"
+	"gin-blog/backend/pkg/util"
 
 	"net/http"
 

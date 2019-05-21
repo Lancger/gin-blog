@@ -6,17 +6,17 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 
-	_ "gin-blog/docs"
+	_ "gin-blog/backend/docs"
 
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 
-	"gin-blog/middleware/jwt"
-	"gin-blog/pkg/setting"
-	"gin-blog/routers/api"
-	v1 "gin-blog/routers/api/v1"
+	"gin-blog/backend/middleware/jwt"
+	"gin-blog/backend/pkg/setting"
+	"gin-blog/backend/routers/api"
+	v1 "gin-blog/backend/routers/api/v1"
 
-	"gin-blog/models"
+	"gin-blog/backend/models"
 )
 
 func InitRouter() *gin.Engine {
