@@ -4,11 +4,13 @@
 
 [![Travis Status](https://img.shields.io/travis/swaggo/swag/master.svg)](https://travis-ci.org/swaggo/swag)
 [![Coverage Status](https://img.shields.io/codecov/c/github/swaggo/swag/master.svg)](https://codecov.io/gh/swaggo/swag)
-[![Go Report Card](https://goreportcard.com/badge/github.com/swaggo/swag)](https://goreportcard.com/badge/github.com/swaggo/swag)
+[![Go Report Card](https://goreportcard.com/badge/github.com/swaggo/swag)](https://goreportcard.com/report/github.com/swaggo/swag)
 [![codebeat badge](https://codebeat.co/badges/71e2f5e5-9e6b-405d-baf9-7cc8b5037330)](https://codebeat.co/projects/github-com-swaggo-swag-master)
 [![Go Doc](https://godoc.org/github.com/swaggo/swagg?status.svg)](https://godoc.org/github.com/swaggo/swag)
 [![Backers on Open Collective](https://opencollective.com/swag/backers/badge.svg)](#backers) 
-[![Sponsors on Open Collective](https://opencollective.com/swag/sponsors/badge.svg)](#sponsors) 
+[![Sponsors on Open Collective](https://opencollective.com/swag/sponsors/badge.svg)](#sponsors) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fswaggo%2Fswag.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fswaggo%2Fswag?ref=badge_shield)
+[![Release](https://img.shields.io/github/release/swaggo/swag.svg?style=flat-square)](https://github.com/swaggo/swag/releases)
+
 
 Swag converts Go annotations to Swagger Documentation 2.0. We've created a variety of plugins for popular [Go web frameworks](#supported-web-frameworks). This allows you to quickly integrate with an existing Go project (using Swagger UI).
 
@@ -18,17 +20,17 @@ Swag converts Go annotations to Swagger Documentation 2.0. We've created a varie
  - [How to use it with Gin](#how-to-use-it-with-gin)
  - [Implementation Status](#implementation-status)
  - [Declarative Comments Format](#declarative-comments-format)
-	- [General API Info](##general-api-info)
+	- [General API Info](#general-api-info)
 	- [API Operation](#api-operation)
 	- [Security](#security)
- - [Examples](#tips)
+ - [Examples](#examples)
 	- [Descriptions over multiple lines](#descriptions-over-multiple-lines)
 	- [User defined structure with an array type](#user-defined-structure-with-an-array-type)
 	- [Add a headers in response](#add-a-headers-in-response) 
 	- [Use multiple path params](#use-multiple-path-params)
 	- [Example value of struct](#example-value-of-struct)
 	- [Description of struct](#description-of-struct)
-	- [Override swagger type of a struct field](#Override-swagger-type-of-a-struct-field)
+	- [Use swaggertype tag to supported custom type](#use-swaggertype-tag-to-supported-custom-type)
 	- [Add extension info to struct field](#add-extension-info-to-struct-field)
 	- [How to using security annotations](#how-to-using-security-annotations)
 - [About the Project](#about-the-project)
@@ -41,6 +43,8 @@ Swag converts Go annotations to Swagger Documentation 2.0. We've created a varie
 ```sh
 $ go get -u github.com/swaggo/swag/cmd/swag
 ```
+To build from source you need [Go](https://golang.org/dl/) (1.9 or newer).
+
 Or download the pre-compiled binaries binray form [release page](https://github.com/swaggo/swag/releases).
 
 3. Run `swag init` in the project's root folder which contains the `main.go` file. This will parse your comments and generate the required files (`docs` folder and `docs/docs.go`).
@@ -66,8 +70,9 @@ USAGE:
 OPTIONS:
    --generalInfo value, -g value       Go file path in which 'swagger general API Info' is written (default: "main.go")
    --dir value, -d value               Directory you want to parse (default: "./")
-   --swagger value, -s value           Output the swagger conf for json and yaml (default: "./docs/swagger")
    --propertyStrategy value, -p value  Property Naming Strategy like snakecase,camelcase,pascalcase (default: "camelcase")
+   --output value, -o value            Output directory for al the generated files(swagger.json, swagger.yaml and doc.go) (default: "./docs")
+   --parseVendor                       Parse go files in 'vendor' folder, disabled by default
 ```
 
 ## Supported Web Frameworks
@@ -316,6 +321,7 @@ $ swag init
 | license.url  | A URL to the license used for the API. MUST be in the format of a URL.                       | // @license.url http://www.apache.org/licenses/LICENSE-2.0.html |
 | host        | The host (name or ip) serving the API.     | // @host localhost:8080         |
 | BasePath    | The base path on which the API is served. | // @BasePath /api/v1             |
+| schemes     | The transfer protocol for the operation that separated by spaces. | // @schemes http https |
 
 ## API Operation
 
@@ -362,12 +368,11 @@ Besides that, `swag` also accepts aliases for some MIME Types as follows:
 
 ## Param Type
 
-- object (struct)
-- string (string)
-- integer (int, uint, uint32, uint64)
-- number (float32)
-- boolean (bool)
-- array
+- query
+- path
+- header
+- body
+- formData
 
 ## Data Type
 
@@ -499,12 +504,14 @@ type Account struct {
 
 ```go
 type Account struct {
-    // ID this is userid
-    ID   int    `json:"id"
+	// ID this is userid
+	ID   int    `json:"id"`
+	Name string `json:"name"` // This is Name
 }
 ```
 
-### Override swagger type of a struct field
+### Use swaggertype tag to supported custom type
+[#201](https://github.com/swaggo/swag/issues/201#issuecomment-475479409)
 
 ```go
 type TimestampTime struct {
@@ -620,3 +627,7 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/swag/sponsor/9/website" target="_blank"><img src="https://opencollective.com/swag/sponsor/9/avatar.svg"></a>
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fswaggo%2Fswag.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fswaggo%2Fswag?ref=badge_large)

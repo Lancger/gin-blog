@@ -12,20 +12,11 @@ import (
 	"gin-blog/pkg/util"
 )
 
-// type Auth struct {
-// 	Username string `valid:"Required; MaxSize(50)"`
-// 	Password string `valid:"Required; MaxSize(50)"`
-// }
-
 // GetAuth 登录
 func GetAuth(c *gin.Context) {
-	type reqPost struct {
-		Username string `json:"username"`
-		Password string `json:"password"`
-	}
 
 	var (
-		req reqPost
+		req models.Auth
 	)
 	// username := c.Query("username")
 	// password := c.Query("password")

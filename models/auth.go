@@ -3,7 +3,7 @@ package models
 import (
 	"gin-blog/pkg/e"
 	"gin-blog/pkg/util"
-	"mos/src/glo/comfunc"
+
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -40,15 +40,13 @@ func AccountInfo(ctx *gin.Context) {
 		Perms:  []string{},
 		Avatar: "",
 	}
-	var (
-		u Auth
-	)
+	var auth Auth
 
 	token := ctx.GetHeader("X-Token")
 	if token == `` {
 		ctx.JSON(http.StatusOK, gin.H{
 			"code":    e.ERROR,
-			"message": comfunc.TokenInvaild,
+			"message": e.ERROR_AUTH,
 			"data":    accountMsg,
 		})
 		return
@@ -65,7 +63,7 @@ func AccountInfo(ctx *gin.Context) {
 	}
 	accountMsg.Name = claims.Username
 	// 获取用户组信息
-	if err = db.Set("gorm:auto_preload", true).Model(&Auth{}).Where("username = ?", accountMsg.Name).First(&u).Error; err == nil {
+	if err = db.Set("gorm:auto_preload", true).Model(&Auth{}).Where("username = ?", accountMsg.Name).First(&auth).Error; err == nil {
 		// for _, i := range u.SystemGroups {
 		// 	accountMsg.Roles = append(accountMsg.Roles, i.GroupName)
 		// }
