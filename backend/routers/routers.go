@@ -13,12 +13,15 @@ import (
 
 	"gin-blog/backend/middleware/jwt"
 	"gin-blog/backend/pkg/setting"
-	"gin-blog/backend/routers/api"
+
+	// "gin-blog/backend/routers/api"
 	v1 "gin-blog/backend/routers/api/v1"
+	api "gin-blog/backend/routers/sys"
 
 	"gin-blog/backend/models"
 )
 
+//主路由配置文件
 func InitRouter() *gin.Engine {
 	r := gin.New()
 
@@ -37,13 +40,17 @@ func InitRouter() *gin.Engine {
 
 	gin.SetMode(setting.RunMode)
 
+	//用户登录
 	r.POST("/user/login", api.GetAuth)
-
-	//swagger api docs
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	//获取用户信息
 	r.GET("/user/info", models.AccountInfo)
+
+	//获取用户信息
+	r.POST("/user/logout", api.UserLogout)
+
+	//swagger api docs
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())

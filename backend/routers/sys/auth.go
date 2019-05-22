@@ -62,3 +62,11 @@ func GetAuth(c *gin.Context) {
 		"data": data,
 	})
 }
+
+// UserLogout 用户登录
+func UserLogout(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, gin.H{
+		"code":    e.SUCCESS,
+		"message": "logout success",
+	})
+}
