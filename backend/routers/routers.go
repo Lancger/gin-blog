@@ -37,7 +37,7 @@ func InitRouter() *gin.Engine {
 
 	gin.SetMode(setting.RunMode)
 
-	r.POST("/auth", api.GetAuth)
+	r.POST("/user/login", api.GetAuth)
 
 	//swagger api docs
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
