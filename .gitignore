@@ -1,1 +1,2 @@
 backend/runtime/logs/*.log
+frontend/node_modules/
