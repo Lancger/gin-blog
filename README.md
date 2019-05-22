@@ -96,7 +96,7 @@ http://127.0.0.1:8000/api/v1/articles/1
 
 
 三、获取Token
-http://127.0.0.1:8000/auth?username=admin&password=admin
+http://127.0.0.1:8000/user/login?username=admin&password=admin
 
 运行结果
 {
@@ -112,7 +112,7 @@ http://127.0.0.1:8000/api/v1/articles
 http://127.0.0.1:8000/api/v1/articles?token=23131
 
 得到token
-http://127.0.0.1:8000/auth?username=admin&password=admin
+http://127.0.0.1:8000/user/login?username=admin&password=admin
 
 带上token请求文章接口
 http://127.0.0.1:8000/api/v1/articles?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImV4cCI6MTU1MTg4NDI1NywiaXNzIjoiZ2luLWJsb2cifQ.xpWYGDvpmzUFW6u8TVeAjq6qjjjTOjLZ17-S8_uO_m0
